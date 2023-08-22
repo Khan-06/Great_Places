@@ -16,8 +16,8 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Great Places',
         theme: ThemeData(
-          scaffoldBackgroundColor: Colors.black12,
-          colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.indigo)
+          scaffoldBackgroundColor: const Color.fromRGBO(254, 220, 219, 1),
+          colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.cyan)
               .copyWith(secondary: Colors.amber).copyWith(background: Colors.black),
         ),
         home: const PlaceListScreen(),
