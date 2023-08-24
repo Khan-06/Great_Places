@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider.value(
       value: UserPlaces(),
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'Great Places',
         theme: ThemeData(
           scaffoldBackgroundColor: const Color.fromRGBO(254, 220, 219, 1),

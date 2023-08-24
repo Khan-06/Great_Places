@@ -15,6 +15,8 @@ class _AddPlaceScreenState extends State<AddPlaceScreen> {
         title: const Text('Add a New Place'),
       ),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           const Text('UserInputs'),
           OutlinedButton.icon(onPressed: (){}, icon: const Icon(Icons.add), label: const Text('Add Place')),
