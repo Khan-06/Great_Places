@@ -16,7 +16,8 @@ class _AddPlaceScreenState extends State<AddPlaceScreen> {
       ),
       body: Column(
         children: [
-          const Text('UserInputs')
+          const Text('UserInputs'),
+          OutlinedButton.icon(onPressed: (){}, icon: const Icon(Icons.add), label: const Text('Add Place')),
         ],
       ),
     );
