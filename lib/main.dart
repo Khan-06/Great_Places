@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 
 import './providers/user_places.dart';
 import './screens/places_list_screen.dart';
+import './screens/add_place_screen.dart';
 
 void main() => runApp(const MyApp());
 
@@ -21,6 +22,9 @@ class MyApp extends StatelessWidget {
               .copyWith(secondary: Colors.amber).copyWith(background: Colors.black),
         ),
         home: const PlaceListScreen(),
+        routes: {
+          AddPlaceScreen.routeName: (context) => const  AddPlaceScreen()
+        },
       ),
     );
   }
