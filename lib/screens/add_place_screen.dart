@@ -14,6 +14,11 @@ class _AddPlaceScreenState extends State<AddPlaceScreen> {
       appBar: AppBar(
         title: const Text('Add a New Place'),
       ),
+      body: Column(
+        children: [
+          const Text('UserInputs')
+        ],
+      ),
     );
   }
 }
