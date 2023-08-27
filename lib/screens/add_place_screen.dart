@@ -19,7 +19,32 @@ class _AddPlaceScreenState extends State<AddPlaceScreen> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           const Text('UserInputs'),
-          OutlinedButton.icon(onPressed: (){}, icon: const Icon(Icons.add), label: const Text('Add Place')),
+          OutlinedButton.icon(
+              onPressed: () {},
+              icon: const Icon(Icons.add),
+              label: const Text('Add Place'),
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.resolveWith<Color?>(
+                  (Set<MaterialState> states) {
+                    if (states.contains(MaterialState.disabled)) {
+                      // Return the color for the disabled state
+                      return Colors.grey; // Or any other color you prefer
+                    }
+                    // Return the color for the default state
+                    return Theme.of(context).colorScheme.primary;
+                  },
+                ),
+                foregroundColor: MaterialStateProperty.resolveWith<Color?>(
+                      (Set<MaterialState> states) {
+                    if (states.contains(MaterialState.disabled)) {
+                      // Return the color for the disabled state
+                      return Colors.grey; // Or any other color you prefer
+                    }
+                    // Return the color for the default state
+                    return Theme.of(context).colorScheme.secondary;
+                  },
+                ),
+              )),
         ],
       ),
     );
