@@ -8,6 +8,7 @@ class AddPlaceScreen extends StatefulWidget {
 }
 
 class _AddPlaceScreenState extends State<AddPlaceScreen> {
+  final _titleController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,7 +24,12 @@ class _AddPlaceScreenState extends State<AddPlaceScreen> {
                 padding: const EdgeInsets.all(10.0),
                 child: Column(
                   children: [
-
+                    TextField(
+                      decoration: InputDecoration(labelText: 'Title'),
+                      controller: _titleController,
+                    ),
+                    const SizedBox(height: 10,),
+                    Container()
                   ],
                 ),
               ),
