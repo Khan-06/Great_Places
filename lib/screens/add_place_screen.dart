@@ -29,7 +29,8 @@ class _AddPlaceScreenState extends State<AddPlaceScreen> {
                       controller: _titleController,
                     ),
                     const SizedBox(height: 10,),
-                    Container()
+                    Container(),
+                    TextButton(onPressed: (){}, child: Container())
                   ],
                 ),
               ),
