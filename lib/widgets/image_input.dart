@@ -10,7 +10,7 @@ class ImageInput extends StatefulWidget {
 
 class _ImageInputState extends State<ImageInput> {
 
-  late File _storedImage;
+   File? _storedImage;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -21,10 +21,11 @@ class _ImageInputState extends State<ImageInput> {
           decoration: BoxDecoration(
             border: Border.all(width: 1,color: Colors.grey)
           ),
-          child: _storedImage != null ? Container() : Container(),
           alignment: Alignment.center,
+          child: _storedImage != null ? Image.file(_storedImage!, fit: BoxFit.cover, width: double.infinity,) : const Text('No Image Found', textAlign: TextAlign.center,),
         ),
-        TextButton(onPressed: (){}, child: Container())
+        const SizedBox(width: 10,),
+        Expanded(child: TextButton.icon(onPressed: (){}, icon: const Icon(Icons.camera), label: const Text('Take Picture'),))
       ],
     );
   }
