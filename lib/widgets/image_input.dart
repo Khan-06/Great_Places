@@ -14,7 +14,10 @@ class _ImageInputState extends State<ImageInput> {
 
    File? _storedImage;
 
-   _takePicture (){}
+   Future<void> _takePicture () async {
+     final imagePicker = ImagePicker();
+     final imageFile = await imagePicker.pickImage(source: ImageSource.camera, maxWidth: 600);
+   }
   @override
   Widget build(BuildContext context) {
     return Row(
