@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'dart:io';
 
+import 'package:image_picker/image_picker.dart';
+
 class ImageInput extends StatefulWidget {
   const ImageInput({Key? key}) : super(key: key);
 
@@ -11,6 +13,8 @@ class ImageInput extends StatefulWidget {
 class _ImageInputState extends State<ImageInput> {
 
    File? _storedImage;
+
+   _takePicture (){}
   @override
   Widget build(BuildContext context) {
     return Row(
