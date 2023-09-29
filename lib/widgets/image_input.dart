@@ -32,7 +32,7 @@ class _ImageInputState extends State<ImageInput> {
           child: _storedImage != null ? Image.file(_storedImage!, fit: BoxFit.cover, width: double.infinity,) : const Text('No Image Found', textAlign: TextAlign.center,),
         ),
         const SizedBox(width: 10,),
-        Expanded(child: TextButton.icon(onPressed: (){}, icon: const Icon(Icons.camera), label: const Text('Take Picture'),))
+        Expanded(child: TextButton.icon(onPressed: _takePicture, icon: const Icon(Icons.camera), label: const Text('Take Picture'),))
       ],
     );
   }
