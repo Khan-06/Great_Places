@@ -10,13 +10,18 @@ class AddPlaceScreen extends StatefulWidget {
   State<AddPlaceScreen> createState() => _AddPlaceScreenState();
 }
 
-File? _pickedImage;
-void selectImage(File pickedImage) {
-  _pickedImage = pickedImage;
-}
-
 class _AddPlaceScreenState extends State<AddPlaceScreen> {
   final _titleController = TextEditingController();
+  File? _pickedImage;
+
+  void selectImage(File pickedImage) {
+    _pickedImage = pickedImage;
+  }
+  void _savePlace (){
+    if(_titleController.text.isEmpty || _pickedImage == null){
+      return;
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,7 +44,7 @@ class _AddPlaceScreenState extends State<AddPlaceScreen> {
                     const SizedBox(
                       height: 10,
                     ),
-                    const ImageInput(selectImage)
+                     ImageInput(selectImage)
                   ],
                 ),
               ),
