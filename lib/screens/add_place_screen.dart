@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:io';
 
 import '../widgets/image_input.dart';
 
@@ -7,6 +8,11 @@ class AddPlaceScreen extends StatefulWidget {
   static const routeName = '/add-place';
   @override
   State<AddPlaceScreen> createState() => _AddPlaceScreenState();
+}
+
+File? _pickedImage;
+void selectImage(File pickedImage) {
+  _pickedImage = pickedImage;
 }
 
 class _AddPlaceScreenState extends State<AddPlaceScreen> {
@@ -30,8 +36,10 @@ class _AddPlaceScreenState extends State<AddPlaceScreen> {
                       decoration: InputDecoration(labelText: 'Title'),
                       controller: _titleController,
                     ),
-                    const SizedBox(height: 10,),
-                    const ImageInput()
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    const ImageInput(selectImage)
                   ],
                 ),
               ),
@@ -53,7 +61,7 @@ class _AddPlaceScreenState extends State<AddPlaceScreen> {
                   },
                 ),
                 foregroundColor: MaterialStateProperty.resolveWith<Color?>(
-                      (Set<MaterialState> states) {
+                  (Set<MaterialState> states) {
                     if (states.contains(MaterialState.disabled)) {
                       // Return the color for the disabled state
                       return Colors.grey; // Or any other color you prefer
