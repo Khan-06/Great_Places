@@ -9,11 +9,11 @@ class PlaceLocation {
   PlaceLocation({required this.latitude, required this.longitude, this.address});
 }
 
-class Places {
+class Place {
   final String id;
   final String title;
   final PlaceLocation location;
   final File image;
 
-  Places({required this.id, required this.title, required this.location, required this.image});
+  Place({required this.id, required this.title, required this.location, required this.image});
 }

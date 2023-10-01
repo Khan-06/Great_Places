@@ -24,7 +24,8 @@ class _AddPlaceScreenState extends State<AddPlaceScreen> {
     if(_titleController.text.isEmpty || _pickedImage == null){
       return;
     }
-    Provider.of<UserPlaces>(context).addPlaces(_titleController.text , _pickedImage!);
+    Provider.of<UserPlaces>(context, listen: false).addPlaces(_titleController.text , _pickedImage!);
+    Navigator.pop(context);
   }
   @override
   Widget build(BuildContext context) {
