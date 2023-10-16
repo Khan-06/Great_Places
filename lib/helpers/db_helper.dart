@@ -16,8 +16,8 @@ class DBHelper {
     final db = await DBHelper.dataBase();
         db.insert(table, data, conflictAlgorithm: ConflictAlgorithm.replace);
   }
-  static Future<void> getData (String table) async {
+  static Future<List<Map<String, dynamic>>> getData (String table) async {
     final db = await DBHelper.dataBase();
-    db.query(table);
+    return db.query(table);
   }
 }
