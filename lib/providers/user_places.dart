@@ -21,4 +21,9 @@ class UserPlaces with ChangeNotifier {
     DBHelper.insert('places',
         {'id': newPlace.id, 'title': newPlace.title, 'image': newPlace.image});
   }
+
+  Future<void> fetchAndSetPlaces() async {
+    final dataList = await DBHelper.getData('places');
+    _items = dataList.map((item) => Place(id: item['id'], title: item['title'], location: PlaceLocation(latitude: 1, longitude: 1), image: File(item['image']))).toList();
+  }
 }

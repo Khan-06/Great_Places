@@ -20,4 +20,5 @@ class DBHelper {
     final db = await DBHelper.dataBase();
     return db.query(table);
   }
+
 }
