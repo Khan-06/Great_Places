@@ -18,12 +18,21 @@ class UserPlaces with ChangeNotifier {
         image: imageFile);
     _items.add(newPlace);
     notifyListeners();
-    DBHelper.insert('places',
-        {'id': newPlace.id, 'title': newPlace.title, 'image': newPlace.image});
+    DBHelper.insert(
+      'user_places',
+      {'id': newPlace.id, 'title': newPlace.title, 'image': newPlace.image.path},
+    );
   }
 
   Future<void> fetchAndSetPlaces() async {
-    final dataList = await DBHelper.getData('places');
-    _items = dataList.map((item) => Place(id: item['id'], title: item['title'], location: PlaceLocation(latitude: 1, longitude: 1), image: File(item['image']))).toList();
+    final dataList = await DBHelper.getData('user_places');
+    _items = dataList
+        .map((item) => Place(
+            id: item['id'],
+            title: item['title'],
+            location: PlaceLocation(latitude: 1, longitude: 1),
+            image: File(item['image'])))
+        .toList();
+    notifyListeners();
   }
 }

@@ -20,25 +20,33 @@ class PlaceListScreen extends StatelessWidget {
               icon: const Icon(Icons.add))
         ],
       ),
-      body: Consumer<UserPlaces>(
-        child: const Text('There are no places yet, Add some places!'),
-        builder: (context, greatPlaces, child) {
-          return greatPlaces.items.isEmpty
-              ? Center(
-                  child: child) // Return the child widget when the condition is true.
-              : ListView.builder(
-                  itemCount: greatPlaces.items.length,
-                  itemBuilder: (context, index) {
-                    return ListTile(
-                      leading: CircleAvatar(
-                        backgroundImage:
-                            FileImage(greatPlaces.items[index].image),
-                      ),
-                      title: Text(greatPlaces.items[index].title),
-                    );
-                  },
-                );
-        },
+      body: FutureBuilder(
+        future:
+            Provider.of<UserPlaces>(context, listen: false).fetchAndSetPlaces(),
+        builder: (context, snapshot) => snapshot.connectionState ==
+                ConnectionState.waiting
+            ? const Center(child: CircularProgressIndicator())
+            : Consumer<UserPlaces>(
+                child: const Text('There are no places yet, Add some places!'),
+                builder: (context, greatPlaces, child) {
+                  return greatPlaces.items.isEmpty
+                      ? Center(
+                          child:
+                              child) // Return the child widget when the condition is true.
+                      : ListView.builder(
+                          itemCount: greatPlaces.items.length,
+                          itemBuilder: (context, index) {
+                            return ListTile(
+                              leading: CircleAvatar(
+                                backgroundImage:
+                                    FileImage(greatPlaces.items[index].image),
+                              ),
+                              title: Text(greatPlaces.items[index].title),
+                            );
+                          },
+                        );
+                },
+              ),
       ),
     );
   }
