@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:location/location.dart';
-
-
 
 class LocationInput extends StatefulWidget {
   const LocationInput({Key? key}) : super(key: key);
@@ -20,7 +17,22 @@ class _LocationInputState extends State<LocationInput> {
           height: 170,
           alignment: Alignment.center,
           width: double.infinity,
-          child: _previewImageUrl == null ? const Text('No Location Chosen', textAlign: TextAlign.center,): Image.network(_previewImageUrl!, fit: BoxFit.cover, width: double.infinity,) ,
+          child: _previewImageUrl == null
+              ? const Text(
+                  'No Location Chosen',
+                  textAlign: TextAlign.center,
+                )
+              : Image.network(
+                  _previewImageUrl!,
+                  fit: BoxFit.cover,
+                  width: double.infinity,
+                ),
+        ),
+        Row(
+          children: [
+            TextButton.icon(onPressed: (){}, icon: const Icon(Icons.location_on), label: Text('Current Location',style: TextStyle(color: Theme.of(context).primaryColor)),),
+            TextButton.icon(onPressed: (){}, icon: const Icon(Icons.map), label:  Text('Select on Map',style: TextStyle(color: Theme.of(context).primaryColor)))
+          ],
         )
       ],
     );
