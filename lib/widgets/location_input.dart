@@ -16,6 +16,9 @@ class _LocationInputState extends State<LocationInput> {
         Container(
           height: 170,
           alignment: Alignment.center,
+          decoration: BoxDecoration(
+            border: Border.all(color: Colors.grey,width: 1)
+          ),
           width: double.infinity,
           child: _previewImageUrl == null
               ? const Text(
@@ -29,6 +32,7 @@ class _LocationInputState extends State<LocationInput> {
                 ),
         ),
         Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             TextButton.icon(onPressed: (){}, icon: const Icon(Icons.location_on), label: Text('Current Location',style: TextStyle(color: Theme.of(context).primaryColor)),),
             TextButton.icon(onPressed: (){}, icon: const Icon(Icons.map), label:  Text('Select on Map',style: TextStyle(color: Theme.of(context).primaryColor)))
